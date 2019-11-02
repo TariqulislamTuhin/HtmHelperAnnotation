@@ -10,10 +10,15 @@ namespace HtmHelperAnnotation.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Student")]
         [Required]
         public int StudentId { get; set; }
+        [Display(Name = "Course Title")]
         [Required]
         public int CourseId { get; set; }
+        [Display(Name = "Department")]
+        [Required]
+        public int DepartmentId { get; set; }
         [Required]
         public DateTime EnrollDate { get; set; }
     }
