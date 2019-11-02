@@ -1,0 +1,98 @@
+﻿@using HtmHelperAnnotation.Models
+@model IEnumerable<HtmHelperAnnotation.Models.Student>
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+
+</head>
+<body>
+    <div class="col-md-8">
+        <section id="registrationform">
+            @using (Html.BeginForm("Registration", "Students", FormMethod.Post))
+            {
+                <fieldset>
+                    <legend>
+                        Registration Form
+                    </legend>
+                    <h4>Use a local account to log in.</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.Label("Name")
+                            </td>
+                            <td>
+                                @Html.TextBox("Name")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("RegNo")
+                            </td>
+                            <td>
+                                @Html.TextBox("RegNo")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("Email")
+                            </td>
+                            <td>
+                                @Html.TextBox("Email")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("Gender")
+                            </td>
+                            <td>
+                                @Html.RadioButton("Gender", "Male") Male
+                                @Html.RadioButton("Gender", "Female") Female
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("DepartmentId")
+                            </td>
+                            <td>
+                                @Html.DropDownList("DepartmentId", new SelectList(ViewBag.Departments, "Id", "Name"), "--Select--")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("Address")
+                            </td>
+                            <td>
+                                @Html.TextArea("Address")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.Label("Password")
+                            </td>
+                            <td>
+                                @Html.Password("Password")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Register" class="btn btn-default"/>
+                            </td>
+                        </tr>
+
+                    </table>
+                </fieldset>
+
+            }
+        </section>
+    </div>
+</body>
+</html>

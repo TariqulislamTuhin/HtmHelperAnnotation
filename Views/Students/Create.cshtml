@@ -1,0 +1,116 @@
+﻿@using System.Reflection.Emit
+@model HtmHelperAnnotation.Models.Student
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.RegNo)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.RegNo)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.RegNo)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Gender)
+            </td>
+            <td>
+                <p>
+                    @Html.RadioButtonFor(m => m.Gender, "Male") Male
+                    @Html.RadioButtonFor(m => m.Gender, "Female") Female
+                    @Html.RadioButtonFor(m => m.Gender, "Other") Shemale
+                </p>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.DepartmentId)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.DepartmentId, new SelectList(ViewBag.Departments, "Id", "Name"), "--select--")
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.DepartmentId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Address)
+            </td>
+            <td>
+                @Html.TextAreaFor(m => m.Address)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Address)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ConfirmPassword)
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="Create" class="btn btn-default" />
+            </td>
+        </tr>
+
+
+
+    </table>
+}
+@section scripts
+{
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
